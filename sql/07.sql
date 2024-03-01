@@ -15,3 +15,7 @@
  * This is the last problem that will require you to use a particular method to solve the query.
  * In future problems, you may choose whether to use the LEFT JOIN or NOT IN clause if they are more applicable.
  */
+
+SELECT DISTINCT title FROM film
+WHERE film_id NOT IN (
+    
