@@ -18,4 +18,14 @@
 
 SELECT DISTINCT title FROM film
 WHERE film_id NOT IN (
-    
+    SELECT inventory.film_id FROM inventory
+    JOIN rental USING (inventory_id)
+    JOIN customer USING (customer_id)
+    JOIN address USING (address_id)
+    JOIN city USING (city_id)
+    JOIN country USING (country_id)
+    WHERE country_id = 103
+)
+AND film_id IN (
+    SELECT film_id FROM inventory)
+ORDER BY title;
